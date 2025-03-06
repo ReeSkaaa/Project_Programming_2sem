@@ -10,48 +10,65 @@ header {
 
 .navigation {
     background-color: #F9F9F8;
-    padding: 15px;
+    padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex; /* Включаем flexbox */
-    justify-content: space-between; /* Размещаем элементы по краям */
-    align-items: center; /* Центрируем элементы по вертикали */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin: 0 20px;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.site-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(83, 76, 110, 1);
+}
+
+.navigation > *:not(:last-child) {
+    margin-right: 20px;
 }
 
 .navigation a {
-    margin: 0 20px;
     text-decoration: none;
-    color: #333;
+    color: rgba(83, 76, 110, 1);
+    font-weight: bold;
+    display: block;
 }
 
 .menu-button {
-    background: none; /* Убираем фон */
-    border: none; /* Убираем рамку */
-    cursor: pointer; /* Меняем курсор на указатель */
-    width: 45px; /* Задаем ширину кнопки */
-    height: 45px; /* Задаем высоту кнопки */
-    padding: 0px 50px; /* Убираем отступы */
-    display: flex; /* Включаем flexbox для центрирования изображения */
-    justify-content: center; /* Центрируем изображение по горизонтали */
-    align-items: center; /* Центрируем изображение по вертикали */
-    border-radius: 20px; /* Закругление углов */
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-left: 10px;
+     margin-right: 10px;
 }
 
 .menu-button img {
-    width: 30px; /* Устанавливаем ширину изображения */
-    height: auto; /* Высота автоматически пропорциональна ширине */
-}
-
-.functions {
-    background-color: rgba(142, 134, 146, 1);
-    padding: 15px;
-    text-align: center;
-}
-
-.functions a {
-    margin: 0 20px;
-    border-radius: 20px; /* Закругление углов для кнопок в функции */
-    text-decoration: none;
-    color: white;
+    width: 30px;
+    height: auto;
 }
 
 .content {
@@ -64,8 +81,6 @@ header {
 }
 
 .navigation button {
-    border-radius: 20px; /* Закругление углов для кнопок в функции */
-    margin-right: 20px;
     border-radius: 20px;
     background: white;
     padding: 10px 20px;
@@ -74,18 +89,6 @@ header {
     box-shadow: 2px 1.5px 2px grey;
 }
 
-.functions button {
-    border-radius: 20px; /* Закругление углов для кнопок в функции */
-    margin-right: 40px;
-    border-radius: 20px;
-    background: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 2px 1.5px 2px grey;
-}
-
-.navigation button a,
 .functions button a {
     color: rgba(83, 76, 110, 1);
     font-weight: bold;
@@ -101,4 +104,61 @@ header {
 .navigation button a:hover,
 .functions button a:hover {
     color: white;
+}
+
+.functions button {
+    border-radius: 20px;
+    margin-right: 20px;
+    background: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1.5px 2px grey;
+}
+
+.functions {
+    background-color: rgba(142, 134, 146, 1);
+    padding: 15px;
+    text-align: center;
+}
+
+.functions a {
+    margin: 0 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.search-bar input {
+    padding: 10px 15px;
+    border: none;
+    width: 200px;
+    font-size: 16px;
+    outline: none;
+    background: white;
+}
+.search-bar input {
+padding: 10px 15px;
+border: none;
+width: 200px;
+font-size: 16px;
+outline: none;
+background: white;
+}
+
+.search-bar button {
+background: rgba(115, 108, 144, 0.91);
+color: white;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 0 20px 20px 0;
 }
