@@ -9,9 +9,26 @@
 <body>
     <header>
         <nav class="navigation">
-            <button class = "menu-button"><a href="#"><img src="static/img/menu_but.png" alt = "Menu"></a></button>
-            <button type="button"><a href="{{ url_for('index') }}">Личный кабинет</a></button>
-        </nav>
+    <div class="left-nav">
+        <button class="menu-button">
+            <a href="#"><img src="static/img/menu_but.png" alt="Menu"></a>
+        </button>
+        <button type="button"><a href="{{ url_for('index') }}">Личный кабинет</a></button>
+    </div>
+
+    <div class="logo">
+        <a href="#"><img src="static/img/icon.png" alt="Логотип"></a>
+        <span class="site-title">RoomArt</span>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск..." class="search-input">
+        <button class="search-button">
+            <img src="static/img/search_icon.png" alt="Поиск">
+        </button>
+    </div>
+</nav>
+
 
         <nav class="functions">
             <button type="button"><a href="#">ГЛАВНАЯ</a></button>
