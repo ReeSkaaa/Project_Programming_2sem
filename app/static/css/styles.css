@@ -7,7 +7,54 @@ body, html {
 header {
     width: 100%;
 }
+/* Стили для формы */
+.form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 20px auto; /* Центрирование по ширине и отступ сверху */
+}
 
+.form-control {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+     font-size: 14px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #534C6E; /* Основной цвет фона */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем стандартную обводку */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Плавные переходы */
+}
+
+.btn:hover {
+    background-color: white; /* Фон при наведении */
+    color: #534C6E; /* Цвет текста при наведении */
+    border: 2px solid #534C6E; /* Контур (обводка) при наведении */
+}
+.auto-resize {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none; /* Отключаем ручное изменение размера */
+    min-height: 100px; /* Минимальная высота */
+    overflow: hidden; /* Скрываем scrollbar */
+}
 .navigation {
     background-color: #F9F9F8;
     padding: 10px 20px;
@@ -63,7 +110,7 @@ header {
     align-items: center;
     border-radius: 20px;
     margin-left: 10px;
-     margin-right: 10px;
+    margin-right: 10px;
 }
 
 .menu-button img {
@@ -87,6 +134,7 @@ header {
     border: none;
     cursor: pointer;
     box-shadow: 2px 1.5px 2px grey;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
 .functions button a {
@@ -114,6 +162,7 @@ header {
     border: none;
     cursor: pointer;
     box-shadow: 2px 1.5px 2px grey;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
 .functions {

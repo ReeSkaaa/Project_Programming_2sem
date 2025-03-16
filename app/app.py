@@ -31,11 +31,58 @@ class Profiles(db.Model):
     def __repr__(self):
         return f"<profiles {self.id}>"
 
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(300), nullable=False)
+    text = db.Column(db.Text, nullable=False)
 
-@app.route('/')
-@app.route('/main')
+@app.route("/main")
+@app.route("/")
 def index():
-    return render_template('index.html', title="Главная")
+    info = []
+    try:
+        info = Users.query.all()
+    except:
+        print("Ошибка чтения из БД")
+
+    return render_template("index.html", title="Главная", list=info)
+
+@app.route("/register", methods=("POST", "GET"))
+def register():
+    if request.method == "POST":
+        # здесь должна быть проверка корректности введенных данных
+        try:
+            hash = generate_password_hash(request.form['psw'])
+            u = Users(email=request.form['email'], psw=hash)
+            db.session.add(u)
+            db.session.flush()
+
+            p = Profiles(name=request.form['name'], old=request.form['old'],
+                         city=request.form['city'], user_id=u.id)
+            db.session.add(p)
+            db.session.commit()
+        except:
+            db.session.rollback()
+            print("Ошибка добавления в БД")
+
+        return redirect(url_for('index'))
+
+    return render_template("register.html", title="Регистрация")
+
+@app.route('/create', methods=['POST', 'GET'])
+def create():
+    if request.method == 'POST':
+        title = request.form['title']
+        text = request.form['text']
+        post = Post(title=title, text=text)
+        try:
+            db.session.add(post)
+            db.session.commit()
+            return redirect('/main')
+        except:
+            return 'При добавлении статьи произошла ошибка!'
+    else:
+        return render_template('create.html')
 
 if __name__ == '__main__':
     with app.app_context():
