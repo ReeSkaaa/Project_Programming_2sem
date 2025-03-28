@@ -13,7 +13,7 @@
         <button class="menu-button">
             <a href="#"><img src="static/img/menu_but.png" alt="Menu"></a>
         </button>
-        <button type="button"><a href="{{ url_for('index') }}">Личный кабинет</a></button>
+        <button type="button"><a href="/register">Личный кабинет</a></button>
     </div>
 
     <div class="logo">
@@ -24,17 +24,17 @@
     <div class="search-bar">
         <input type="text" placeholder="Поиск..." class="search-input">
         <button class="search-button">
-            <img src="static/img/search_icon.png" alt="Поиск">
+            <img src="static/img/search_logo.png" alt="Поиск">
         </button>
     </div>
 </nav>
 
 
         <nav class="functions">
-            <button type="button"><a href="#">ГЛАВНАЯ</a></button>
+            <button type="button"><a href="/main">ГЛАВНАЯ</a></button>
             <button type="button"><a href="#">СТИЛИ ИНТЕРЬЕРА</a></button>
             <button type="button"><a href="#">ИДЕИ И СОВЕТЫ</a></button>
-            <button type="button"><a href="#">СОЗДАТЬ ПОСТ</a></button>
+            <button type="button"><a href="/create">СОЗДАТЬ ПОСТ</a></button>
         </nav>
     </header>
     <main class="content">
