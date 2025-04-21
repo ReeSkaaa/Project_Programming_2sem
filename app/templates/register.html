@@ -1,19 +1,47 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% block content %}
 {{ super() }}
+
 {% for cat, msg in get_flashed_messages(True) %}
-<div class="flash {{cat}}">{{msg}}</div>
+<div class="flash {{ cat }}">{{ msg }}</div>
 {% endfor %}
+
 <div class="form-container">
-    <form action="" method="post" class="form-control">
-        <h2>Регистрация</h2>
-        <p><label>Имя: </label> <input type="text" name="name" value=""  required/>
-        <p><label>Возраст: </label> <input type="text" name="old" value="" required/>
-        <p><label>Город: </label> <input type="text" name="city" value="" required/>
-        <p><label>Email: </label> <input type="text" name="email" value="" required/>
-        <p><label>Пароль: </label> <input type="password" name="psw" value="" required/>
-        <p><label>Повтор пароля: </label> <input type="password" name="psw2" value="" required></p>
-        <p><input type="submit" value="Регистрация" class="btn btn-success"/>
+    <form action="" method="post">
+        <h2 class="form-title">Регистрация</h2>
+
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="old">Возраст</label>
+            <input type="text" name="old" id="old" required>
+        </div>
+
+        <div class="form-group">
+            <label for="city">Город</label>
+            <input type="text" name="city" id="city" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="psw">Пароль</label>
+            <input type="password" name="psw" id="psw" required>
+        </div>
+
+        <div class="form-group">
+            <label for="psw2">Повтор пароля</label>
+            <input type="password" name="psw2" id="psw2" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Зарегистрироваться</button>
     </form>
 </div>
+
 {% endblock %}
