@@ -46,14 +46,16 @@ header {
 }
 .auto-resize {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     box-sizing: border-box;
-    resize: none; /* Отключаем ручное изменение размера */
-    min-height: 100px; /* Минимальная высота */
-    overflow: hidden; /* Скрываем scrollbar */
+    resize: none;
+    min-height: 100px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 1.5;
 }
 .navigation {
     background-color: #F9F9F8;
