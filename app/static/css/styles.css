@@ -218,3 +218,105 @@ border-radius: 0 20px 20px 0;
     width: 30px;
     height: 30px;
 }
+wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Контент будет расти */
+.content {
+    flex: 1;
+}
+
+/* Стили футера */
+.footer {
+    background-color: #625e63f6;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* внешний теневой контур */
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: left;
+    position: relative;
+}
+
+/* Внутренний контур через inset */
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1.5px solid rgba(83, 76, 110, 0.2); /* тонкий внутренний контур */
+    border-radius: 16px;
+    pointer-events: none; /* чтобы не мешал кликам */
+}
+
+.form-title {
+    text-align: center;
+    color: #534C6E;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #534C6E;
+    outline: none;
+}
+
+.btn-success {
+    background-color: #534C6E;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: white;
+    color: #534C6E;
+    border: 2px solid #534C6E;
+}

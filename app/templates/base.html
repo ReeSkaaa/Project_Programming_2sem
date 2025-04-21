@@ -7,27 +7,28 @@
     <title>{{title}}</title>
 </head>
 <body>
+<div class="wrapper">
     <header>
         <nav class="navigation">
-    <div class="left-nav">
-        <button class="menu-button">
-            <a href="#"><img src="static/img/menu_but.png" alt="Menu"></a>
-        </button>
-        <button type="button"><a href="/register">Личный кабинет</a></button>
-    </div>
+            <div class="left-nav">
+                <button class="menu-button">
+                    <a href="#"><img src="static/img/menu_but.png" alt="Menu"></a>
+                </button>
+                <button type="button"><a href="/register">Личный кабинет</a></button>
+            </div>
 
-    <div class="logo">
-        <a href="#"><img src="static/img/icon.png" alt="Логотип"></a>
-        <span class="site-title">RoomArt</span>
-    </div>
+            <div class="logo">
+                <a href="#"><img src="static/img/icon.png" alt="Логотип"></a>
+                <span class="site-title">RoomArt</span>
+            </div>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Поиск..." class="search-input">
-        <button class="search-button">
-            <img src="static/img/search_logo.png" alt="Поиск">
-        </button>
-    </div>
-</nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск..." class="search-input">
+                <button class="search-button">
+                    <img src="static/img/search_logo.png" alt="Поиск">
+                </button>
+            </div>
+        </nav>
 
 
         <nav class="functions">
@@ -41,5 +42,16 @@
         {% block content %}
         {% endblock %}
     </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 RoomArt. Все права защищены.</p>
+            <nav class="footer-nav">
+                <a href="#">О нас</a>
+                <a href="#">Контакты</a>
+                <a href="#">Политика конфиденциальности</a>
+            </nav>
+        </div>
+    </footer>
+</div>
 </body>
 </html>
