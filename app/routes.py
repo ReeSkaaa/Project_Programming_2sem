@@ -48,3 +48,4 @@ def create():
         except:
             return 'При добавлении статьи произошла ошибка!'
     return render_template("create.html")
+
