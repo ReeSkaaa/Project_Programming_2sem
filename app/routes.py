@@ -9,11 +9,14 @@ main = Blueprint('main', __name__)
 @main.route("/main")
 def index():
     info = []
+    posts = []
     try:
         info = Users.query.all()
-    except:
-        print("Ошибка чтения из БД")
-    return render_template("index.html", title="Главная", list=info)
+        posts = Post.query.order_by(Post.date.desc()).all()
+    except Exception as e:
+        print("Ошибка чтения из БД:", e)
+
+    return render_template("index.html", title="Главная", list=info, posts=posts)
 
 @main.route("/register", methods=["POST", "GET"])
 def register():

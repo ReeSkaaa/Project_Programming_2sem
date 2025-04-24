@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -35,17 +36,19 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
-
+    date = db.Column(db.DateTime)
 @app.route("/main")
 @app.route("/")
 def index():
     info = []
+    posts = []
     try:
         info = Users.query.all()
-    except:
-        print("Ошибка чтения из БД")
+        posts = Post.query.order_by(Post.date.desc()).all()  # Получаем все посты, отсортированные по дате
+    except Exception as e:
+        print("Ошибка чтения из БД:", e)
 
-    return render_template("index.html", title="Главная", list=info)
+    return render_template("index.html", title="Главная", list=info, posts=posts)
 
 @app.route("/register", methods=("POST", "GET"))
 def register():
