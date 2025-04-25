@@ -33,8 +33,7 @@ header {
     padding: 10px;
     background-color: #534C6E; /* Основной цвет фона */
     color: white; /* Цвет текста */
-    border: none; /* Убираем стандартную обводку */
-    border-radius: 5px; /* Закругленные углы */
+    border-radius: 20px; /* Закругленные углы */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border 0.3s; /* Плавные переходы */
 }
@@ -49,7 +48,7 @@ header {
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 20px;
     box-sizing: border-box;
     resize: none;
     min-height: 100px;
@@ -316,6 +315,7 @@ wrapper {
 }
 
 .btn-success {
+    border-radius: 20px;
     background-color: #534C6E;
     color: white;
     border: none;
@@ -328,6 +328,7 @@ wrapper {
 }
 
 .btn-success:hover {
+    border-radius: 20px;
     background-color: white;
     color: #534C6E;
     border: 2px solid #534C6E;
