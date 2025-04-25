@@ -12,7 +12,7 @@ def index():
     posts = []
     try:
         info = Users.query.all()
-        posts = Post.query.order_by(Post.date.desc()).all()
+        posts = Post.query.order_by(Post.id.desc()).all()
     except Exception as e:
         print("Ошибка чтения из БД:", e)
 
