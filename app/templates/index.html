@@ -4,21 +4,22 @@
 <div class="posts-container">
     <h1 class="main-title">Последние публикации</h1>
 
-    {% for post in posts %}
-    <div class="post-card">
-        <div class="post-header">
-            <h2 class="post-title">{{ post.title }}</h2>
-            <span class="post-date">{{ post.date.strftime('%d.%m.%Y в %H:%M') }}</span>
+    {% if posts %}
+        {% for post in posts %}
+        <div class="post-card">
+            <div class="post-header">
+                <h2 class="post-title">{{ post.title }}</h2>
+            </div>
+            <div class="post-content">
+                <p>{{ post.text }}</p>
+            </div>
         </div>
-        <div class="post-content">
-            <p>{{ post.text }}</p>
-        </div>
-    </div>
+        {% endfor %}
     {% else %}
     <div class="no-posts">
         <p>Пока нет ни одной публикации. Будьте первым!</p>
         <a href="/create" class="create-post-btn">Создать пост</a>
     </div>
-    {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}

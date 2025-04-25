@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.security import generate_password_hash
+import os
+import sqlite3
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -36,7 +38,6 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
-    date = db.Column(db.DateTime)
 @app.route("/main")
 @app.route("/")
 def index():
@@ -44,7 +45,7 @@ def index():
     posts = []
     try:
         info = Users.query.all()
-        posts = Post.query.order_by(Post.date.desc()).all()  # Получаем все посты, отсортированные по дате
+        posts = Post.query.order_by(Post.id.desc()).all()
     except Exception as e:
         print("Ошибка чтения из БД:", e)
 
@@ -86,6 +87,9 @@ def create():
             return 'При добавлении статьи произошла ошибка!'
     else:
         return render_template('create.html')
+
+
+
 
 if __name__ == '__main__':
     with app.app_context():
