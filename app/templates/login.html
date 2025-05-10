@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<!-- Выводим флеш-сообщения -->
+{% for cat, msg in get_flashed_messages(with_categories=true) %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
+
+<!-- Форма входа -->
+<div class="form-container">
+    <form action="{{ url_for('auth.login') }}" method="post" id="loginForm">
+        <h2 class="form-title">Войти</h2>
+
+        <!-- Поле для имени -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <!-- Поле для пароля -->
+        <div class="form-group">
+            <label for="psw">Пароль</label>
+            <input type="password" name="psw" id="psw" required>
+        </div>
+
+        <!-- Кнопка для отправки формы -->
+        <button type="submit" class="btn btn-white spaced-button" style="margin-top: 5px;">Войти</button>
+    </form>
+</div>
+
+{% endblock %}
