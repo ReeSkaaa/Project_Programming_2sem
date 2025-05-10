@@ -1,5 +1,5 @@
-from datetime import datetime
 from . import db
+from datetime import datetime
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -8,9 +8,6 @@ class Users(db.Model):
     date = db.Column(db.DateTime, default=datetime.utcnow)
     pr = db.relationship('Profiles', backref='users', uselist=False)
 
-    def __repr__(self):
-        return f"<users {self.id}>"
-
 class Profiles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=True)
@@ -18,9 +15,6 @@ class Profiles(db.Model):
     city = db.Column(db.String(100), nullable=True)
     extra_information = db.Column(db.Text, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    def __repr__(self):
-        return f"<profiles {self.id}>"
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

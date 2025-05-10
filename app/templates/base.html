@@ -25,24 +25,31 @@
         <nav class="navigation">
             <div class="left-nav">
                 <button class="menu-button">
-                    <a href="#"><img src="static/img/menu_but.png" alt="Menu"></a>
+                    <a href="#"><img src="{{ url_for('static', filename='img/menu_but.png') }}" alt="Menu"></a>
                 </button>
-                <button type="button"><a href="/register">Личный кабинет</a></button>
+
+                <!-- Кнопки для входа/регистрации или личного кабинета -->
+                {% if session.get('user_email') %}
+                    <button type="button"><a href="{{ url_for('auth.cabinet') }}">Кабинет</a></button>
+                    <button type="button"><a href="{{ url_for('auth.logout') }}">Выйти</a></button>
+                {% else %}
+                    <button type="button"><a href="{{ url_for('auth.login') }}">Войти</a></button>
+                    <button type="button"><a href="{{ url_for('auth.register') }}">Регистрация</a></button>
+                {% endif %}
             </div>
 
             <div class="logo">
-                <a href="#"><img src="static/img/icon.png" alt="Логотип"></a>
+                <a href="#"><img src="{{ url_for('static', filename='img/icon.png') }}" alt="Логотип"></a>
                 <span class="site-title">RoomArt</span>
             </div>
 
             <div class="search-bar">
                 <input type="text" placeholder="Поиск..." class="search-input">
                 <button class="search-button">
-                    <img src="static/img/search_logo.png" alt="Поиск">
+                    <img src="{{ url_for('static', filename='img/search_logo.png') }}" alt="Поиск">
                 </button>
             </div>
         </nav>
-
 
         <nav class="functions">
             <button type="button"><a href="/main">ГЛАВНАЯ</a></button>

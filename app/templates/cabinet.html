@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fb;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .logout {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            background-color: #534C6E;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .logout:hover {
+            background-color: white;
+            color:  #534C6E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Личный кабинет</h1>
+
+        <h2>Основные данные</h2>
+        <ul>
+            <li><span class="label">Email:</span> {{ user.email }}</li>
+            <li><span class="label">Дата регистрации:</span> {{ user.date.strftime('%d.%m.%Y %H:%M') }}</li>
+        </ul>
+
+        {% if profile %}
+            <h2>Профиль</h2>
+            <ul>
+                <li><span class="label">Имя:</span> {{ profile.name }}</li>
+                <li><span class="label">Возраст:</span> {{ profile.old }}</li>
+                <li><span class="label">Город:</span> {{ profile.city }}</li>
+                <li><span class="label">Доп. информация:</span> {{ profile.extra_information }}</li>
+            </ul>
+        {% else %}
+            <p>Профиль не заполнен.</p>
+        {% endif %}
+
+        <a href="{{ url_for('auth.logout') }}" class="logout">Выйти</a>
+    </div>
+</body>
+</html>
